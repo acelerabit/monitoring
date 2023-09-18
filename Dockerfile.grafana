@@ -1,0 +1,6 @@
+# Use a imagem oficial do Grafana
+FROM grafana/grafana:latest
+
+
+# Exponha a porta em que o Grafana estará escutando (a mesma definida em "ports" no docker-compose.yml)
+EXPOSE 3000
