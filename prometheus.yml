@@ -38,6 +38,12 @@ scrape_configs:
         - admin.brclightning.com
         - app.bolonobolso.com.br
         - api.bolonobolso.com.br
+        - api.bolonobolso.staging.acelerabit.com
+        - app.bolonobolso.staging.acelerabit.com
+        - painel.bolonobolso.staging.acelerabit.com
+        - admin.brc.staging.acelerabit.com
+        - api.brc.staging.acelerabit.com
+        - brc.staging.acelerabit.com
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
