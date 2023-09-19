@@ -63,3 +63,9 @@ services:
     container_name: node_exporter
     ports:
       - "9100:9100"
+  postgres-exporter-db1:
+    image: wrouesnel/postgres_exporter
+    ports:
+      - "9187:9187"
+    environment:
+      DATA_SOURCE_NAME: ${PG_EXPORTER_DB1_DATA_SOURCE}
