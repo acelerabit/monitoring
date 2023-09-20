@@ -39,7 +39,7 @@ scrape_configs:
         - quevende.com.br
         - empresa.quevende.com.br
         - admin.quevende.com.br
-        - public.quevende.com.br
+        # - public.quevende.com.br
         - seg-lavanderia-api.acelerabit.com
         - app.seglavanderia.com.br
         - locaseg.acelerabit.com
