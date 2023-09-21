@@ -26,37 +26,35 @@ scrape_configs:
     #     replacement: localhost:9116
   - job_name: 'blackbox'
     metrics_path: /probe
-    params:
-      module: [http_2xx]
     static_configs:
       - targets:
-        - https://empresa.staging.quevende.com.br # Target to probe with http on port 8080.
-        - https://admin.staging.quevende.com.br
-        - https://candidato.staging.quevende.com.br
-        - https://api.staging.quevende.com.br/api/metrics
-        - https://app.lifesprint.com.br
-        - https://barauna.acelerabit.com
-        - https://encomendex.com
-        - https://app.diariodeobras.com.br
-        - https://quevende.com.br
-        - https://empresa.quevende.com.br
-        - https://admin.quevende.com.br
-        - https://public.quevende.com.br
-        - https://seg-lavanderia-api.acelerabit.com
-        - https://app.seglavanderia.com.br
-        - https://locaseg.acelerabit.com
-        - https://app.seglocacoes.com.br
-        - https://app.brclightning.com
-        - https://api.brclightning.com
-        - https://admin.brclightning.com
-        - https://app.bolonobolso.com.br
-        - https://api.bolonobolso.com.br
-        - https://api.bolonobolso.staging.acelerabit.com
-        - https://app.bolonobolso.staging.acelerabit.com
-        - https://painel.bolonobolso.staging.acelerabit.com
-        - https://admin.brc.staging.acelerabit.com
-        - https://api.brc.staging.acelerabit.com
-        - https://brc.staging.acelerabit.com
+        - empresa.staging.quevende.com.br # Target to probe with http on port 8080.
+        - admin.staging.quevende.com.br
+        - candidato.staging.quevende.com.br
+        - api.staging.quevende.com.br/api/metrics
+        - app.lifesprint.com.br
+        - barauna.acelerabit.com
+        - encomendex.com
+        - app.diariodeobras.com.br
+        - quevende.com.br
+        - empresa.quevende.com.br
+        - admin.quevende.com.br
+        - public.quevende.com.br
+        - seg-lavanderia-api.acelerabit.com
+        - app.seglavanderia.com.br
+        - locaseg.acelerabit.com
+        - app.seglocacoes.com.br
+        - app.brclightning.com
+        - api.brclightning.com
+        - admin.brclightning.com
+        - app.bolonobolso.com.br
+        - api.bolonobolso.com.br
+        - api.bolonobolso.staging.acelerabit.com
+        - app.bolonobolso.staging.acelerabit.com
+        - painel.bolonobolso.staging.acelerabit.com
+        - admin.brc.staging.acelerabit.com
+        - api.brc.staging.acelerabit.com
+        - brc.staging.acelerabit.com
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
@@ -64,3 +62,10 @@ scrape_configs:
         target_label: instance
       - target_label: __address__
         replacement: 159.89.55.193:9115
+    modules:
+      icmp:
+        prober: icmp
+        timeout: 5m   # Defina o timeout para 5 minutos (300 segundos)
+      http_2xx:
+        prober: http
+        timeout: 5s
