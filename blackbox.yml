@@ -4,4 +4,4 @@ modules:
     http:
       preferred_ip_protocol: "ip4"
     icmp:
-      timeout: 5m
+      timeout: 300s
