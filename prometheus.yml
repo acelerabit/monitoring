@@ -62,10 +62,3 @@ scrape_configs:
         target_label: instance
       - target_label: __address__
         replacement: 159.89.55.193:9115
-    modules:
-      icmp:
-        prober: icmp
-        timeout: 5m   # Defina o timeout para 5 minutos (300 segundos)
-      http_2xx:
-        prober: http
-        timeout: 5s
