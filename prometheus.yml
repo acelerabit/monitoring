@@ -26,6 +26,8 @@ scrape_configs:
     #     replacement: localhost:9116
   - job_name: 'blackbox'
     metrics_path: /probe
+    params:
+      module: [http_2xx]
     static_configs:
       - targets:
         - empresa.staging.quevende.com.br # Target to probe with http on port 8080.
