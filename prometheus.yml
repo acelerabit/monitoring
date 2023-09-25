@@ -25,6 +25,8 @@ scrape_configs:
     #   - target_label: __address__
     #     replacement: localhost:9116
   - job_name: 'blackbox'
+    scrape_timeout: 15s
+    scrape_interval: 15s
     metrics_path: /probe
     params:
       module: [http_2xx]
@@ -41,7 +43,6 @@ scrape_configs:
         - quevende.com.br
         - empresa.quevende.com.br
         - admin.quevende.com.br
-        - public.quevende.com.br
         - seg-lavanderia-api.acelerabit.com
         - app.seglavanderia.com.br
         - locaseg.acelerabit.com
