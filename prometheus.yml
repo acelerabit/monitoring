@@ -15,7 +15,7 @@ scrape_configs:
       - targets: ['node_exporter:9100']
   - job_name: 'postgres-db1'
     static_configs:
-      - targets: ['postgres-exporter-db1:9187']
+      - targets: ['159.89.55.193:9187']
     # metrics_path: /metrics
     # relabel_configs:
     #   - source_labels: [__address__]
@@ -25,6 +25,7 @@ scrape_configs:
     #   - target_label: __address__
     #     replacement: localhost:9116
   - job_name: 'blackbox'
+    scrape_interval: 60s
     metrics_path: /probe
     params:
       module: [http_2xx]
