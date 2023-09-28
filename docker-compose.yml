@@ -22,22 +22,6 @@ services:
       - '9090:9090'
     networks:
       - monitoring
-  grafana:
-    build:
-      context: .
-      dockerfile: Dockerfile.grafana
-    image: grafana/grafana:latest
-    container_name: monitoring_grafana
-    restart: unless-stopped
-    links:
-      - prometheus:prometheus
-    volumes:
-      - ./data/grafana:/var/lib/grafana
-    ports:
-      - '4000:3000'
-    user: "root:root"
-    networks:
-      - monitoring
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:latest
     container_name: cadvisor
@@ -75,14 +59,6 @@ services:
     container_name: node_exporter
     ports:
       - "9100:9100"
-    networks:
-      - monitoring
-  postgres-exporter-db1:
-    image: wrouesnel/postgres_exporter
-    ports:
-      - "9187:9187"
-    environment:
-      DATA_SOURCE_NAME: ${PG_EXPORTER_DB1_DATA_SOURCE}
     networks:
       - monitoring
 
