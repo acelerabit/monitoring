@@ -31,17 +31,10 @@ scrape_configs:
       module: [http_2xx]
     static_configs:
       - targets:
-        - empresa.staging.quevende.com.br # Target to probe with http on port 8080.
-        - admin.staging.quevende.com.br
-        - candidato.staging.quevende.com.br
-        - api.staging.quevende.com.br/api/metrics
         - app.lifesprint.com.br
         - barauna.acelerabit.com
         - encomendex.com
         - app.diariodeobras.com.br
-        - quevende.com.br
-        - empresa.quevende.com.br
-        - admin.quevende.com.br
         - seg-lavanderia-api.acelerabit.com
         - app.seglavanderia.com.br
         - locaseg.acelerabit.com
@@ -63,4 +56,4 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: 159.89.55.193:9115
+        replacement: 157.230.56.99:9115

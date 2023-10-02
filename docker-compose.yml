@@ -35,6 +35,9 @@ services:
       - ./data/grafana:/var/lib/grafana
     ports:
       - '4000:3000'
+    environment:
+      - GF_SECURITY_ADMIN_USER=teste
+      - GF_SECURITY_ADMIN_PASSWORD=teste
     user: "root:root"
     networks:
       - monitoring
