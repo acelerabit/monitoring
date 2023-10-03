@@ -32,11 +32,13 @@ scrape_configs:
     static_configs:
     # list your domains
       - targets:
-        - example.com
+        - quevende.com.br
+        - empresa.quevende.com.br
+        - admin.quevende.com.br
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: YOUR_IP_ADDRESS:9115
+        replacement: 164.90.151.106:9115
