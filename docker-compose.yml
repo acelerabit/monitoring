@@ -22,25 +22,6 @@ services:
       - '9090:9090'
     networks:
       - monitoring
-  grafana:
-    build:
-      context: .
-      dockerfile: Dockerfile.grafana
-    image: grafana/grafana:latest
-    container_name: monitoring_grafana
-    restart: unless-stopped
-    links:
-      - prometheus:prometheus
-    volumes:
-      - ./data/grafana:/var/lib/grafana
-    ports:
-      - '4000:3000'
-    environment:
-      - GF_SECURITY_ADMIN_USER=teste
-      - GF_SECURITY_ADMIN_PASSWORD=teste
-    user: "root:root"
-    networks:
-      - monitoring
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:latest
     container_name: cadvisor
