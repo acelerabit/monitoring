@@ -7,8 +7,6 @@ services:
       dockerfile: Dockerfile.app
     ports:
       - '8000:8000'
-    networks:
-      - monitoring
   prometheus:
     build:
       context: .
@@ -20,8 +18,6 @@ services:
       - '--config.file=/etc/prometheus/prometheus.yml'
     ports:
       - '9090:9090'
-    networks:
-      - monitoring
   grafana:
     build:
       context: .
@@ -39,8 +35,6 @@ services:
       - GF_SECURITY_ADMIN_USER=teste
       - GF_SECURITY_ADMIN_PASSWORD=teste
     user: "root:root"
-    networks:
-      - monitoring
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:latest
     container_name: cadvisor
@@ -53,15 +47,11 @@ services:
     - /var/lib/docker/:/var/lib/docker:ro
     depends_on:
     - redis
-    networks:
-      - monitoring
   redis:
     image: redis:latest
     container_name: redis
     ports:
     - 6379:6379
-    networks:
-      - monitoring
   blackbox_exporter:
     build:
       context: .
@@ -71,24 +61,14 @@ services:
       - "9115:9115"
     volumes:
       - ./blackbox.yml:/etc/blackbox_exporter/config.yml
-    networks:
-      - monitoring
   node_exporter:
     image: prom/node-exporter:latest
     container_name: node_exporter
     ports:
       - "9100:9100"
-    networks:
-      - monitoring
   postgres-exporter-db1:
     image: wrouesnel/postgres_exporter
     ports:
       - "9187:9187"
     environment:
       DATA_SOURCE_NAME: ${PG_EXPORTER_DB1_DATA_SOURCE}
-    networks:
-      - monitoring
-
-
-networks:
-  monitoring:
