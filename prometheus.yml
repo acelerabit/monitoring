@@ -30,30 +30,13 @@ scrape_configs:
     params:
       module: [http_2xx]
     static_configs:
+    # list your domains
       - targets:
-        - app.lifesprint.com.br
-        - barauna.acelerabit.com
-        - encomendex.com
-        - app.diariodeobras.com.br
-        - seg-lavanderia-api.acelerabit.com
-        - app.seglavanderia.com.br
-        - locaseg.acelerabit.com
-        - app.seglocacoes.com.br
-        - app.brclightning.com
-        - api.brclightning.com
-        - admin.brclightning.com
-        - app.bolonobolso.com.br
-        - api.bolonobolso.com.br
-        - api.bolonobolso.staging.acelerabit.com
-        - app.bolonobolso.staging.acelerabit.com
-        - painel.bolonobolso.staging.acelerabit.com
-        - admin.brc.staging.acelerabit.com
-        - api.brc.staging.acelerabit.com
-        - brc.staging.acelerabit.com
+        - example.com
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: 157.230.56.99:9115
+        replacement: YOUR_IP_ADDRESS:9115
