@@ -25,7 +25,8 @@ scrape_configs:
     #   - target_label: __address__
     #     replacement: 159.89.55.193:9116
   - job_name: 'blackbox'
-    scrape_interval: 60s
+    scrape_interval: 5m
+    scrape_timeout: 1m
     metrics_path: /probe
     params:
       module: [http_2xx]
